@@ -11,7 +11,7 @@ from pyrogram.types import Message
 from youtubesearchpython.__future__ import VideosSearch
 from Clonify.utils.database import is_on_off
 from Clonify.utils.formatters import time_to_seconds
-from config import YOUR_API_URL , YOUR_API_KEY
+#from config import YOUR_API_URL , YOUR_API_KEY
 
 async def get_file_from_api(video_id, audio=True):
     endpoint = "/download/audio" if audio else "/download/video"
