@@ -52,10 +52,8 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # ----------------------------------------------------------------
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
-API_URL = getenv("API_URL", 'https://api.thequickearn.xyz') #youtube song url
-VIDEO_API_URL = getenv("VIDEO_API_URL", 'https://api.video.thequickearn.xyz')
-API_KEY = getenv("API_KEY", '30DxNexGenBots19e355') # youtube song api key
-
+BASE_API_URL = "https://zyro.zyronetworks.shop"
+BASE_API_KEY = "CeXY5r3HH3yyPMICJ93FfgzCI12C6fzn"
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 SOURCE = getenv("SOURCE", "https://github.com/TEAMPURVI/SONALI_MUSIC")
