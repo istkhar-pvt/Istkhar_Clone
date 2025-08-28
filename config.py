@@ -52,6 +52,8 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # ----------------------------------------------------------------
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 # ----------------------------------------------------------------
+BASE_API_URL = "https://zyro.zyronetworks.shop"
+BASE_API_KEY = "N9F81n1ZDxiKo4gsJsiQXsv7m5U7IPx2"
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
 SOURCE = getenv("SOURCE", "https://github.com/TEAMPURVI/SONALI_MUSIC")
