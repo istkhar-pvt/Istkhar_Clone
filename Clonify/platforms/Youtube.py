@@ -25,10 +25,10 @@ from Clonify.utils.database import is_on_off
 from Clonify.utils.formatters import time_to_seconds
 
 BASE_API_URL = "http://zyro.zyronetworks.shop"
-BASE_API_KEY = "IcDU1vq1WSMo5XfpatPmsMNanB5eRkM1"
+BASE_API_KEY = "JkBwVWTiMTdsflfi4MhDfIiBKu7MPg6F"
 
 DOWNLOAD_DIR = Path("downloads")
-DOWNLOAD_DIR.mkdir(exist_ok=True)
+os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 COOKIE_NAME = None
 
@@ -100,24 +100,11 @@ def report_dead_cookie_to_server(cookie_file):
         resp = requests.post(url, json=data, headers=headers, timeout=10)
         
         if resp.status_code == 200:
-            logger.info(f"✅ Reported dead cookie to server: {cookie_name}")
+            logger.info(f"? Reported dead cookie to server: {cookie_name}")
         else:
-            logger.warning(f"⚠️ Failed to report dead cookie: {resp.text}")
+            logger.warning(f"?? Failed to report dead cookie: {resp.text}")
     except Exception as e:
         logger.error(f"Error reporting dead cookie: {e}")
-
-
-def save_cookies_from_response(cookies_b64):
-    """Save cookies from API response"""
-    try:
-        cookie_content = base64.b64decode(cookies_b64).decode()
-        temp_cookie_file = os.path.join(DOWNLOAD_DIR, f"cookies_{int(time.time())}.txt")
-        with open(temp_cookie_file, "w", encoding="utf-8") as f:
-            f.write(cookie_content)
-        return temp_cookie_file
-    except Exception as e:
-        logger.error(f"Error saving cookies: {e}")
-        return None
 
 
 def delete_after_use(cookie_file):
@@ -175,9 +162,6 @@ async def shell_cmd(cmd):
         else:
             return errorz.decode("utf-8")
     return out.decode("utf-8")
-
-
-
 
 class YouTubeAPI:
     def __init__(self):
@@ -466,12 +450,14 @@ class YouTubeAPI:
             LOGGER(__name__).error(f"Error in slider: {str(e)}")
             raise ValueError("Failed to fetch video details")
 
-
-
-    def independent_download_with_cookies(self, video_id, cookies_b64, is_video=False):
-        """Download independently using provided cookies"""
+    def independent_download_with_cookies(self, video_id, is_video=False):
+        """
+        Download independently using server-provided cookies (fetched via /cookies).
+        Note: Removed cookies_b64 handling; relies solely on get_cookies_from_server().
+        """
+        cookie_file = None
         try:
-            # Save cookies to temporary file
+            # Always fetch a fresh cookie file from server
             cookie_file = get_cookies_from_server()
             if not cookie_file:
                 return None
@@ -520,7 +506,7 @@ class YouTubeAPI:
             if cookie_file:
                 report_dead_cookie_to_server(cookie_file)
             # Clean up temporary cookie file
-            if os.path.exists(cookie_file):
+            if cookie_file and os.path.exists(cookie_file):
                 print("cookie deleting")
                 os.remove(cookie_file)
             logger.error(f"Independent download error: {e}")
@@ -528,7 +514,6 @@ class YouTubeAPI:
         finally:
             if cookie_file and os.path.exists(cookie_file):
                 os.remove(cookie_file)
-
 
     async def download(
         self,
@@ -582,7 +567,7 @@ class YouTubeAPI:
         def audio_dl(vid_id):
             try:
                 if not BASE_API_KEY or not BASE_API_URL:
-                    print("⚙️ API KEY or URL not set in config")
+                    print("?? API KEY or URL not set in config")
                     return None
                     
                 headers = {
@@ -610,16 +595,14 @@ class YouTubeAPI:
                         future.result()
                     return xyz
                 elif status == 'downloading':
-                    # Server is downloading, use provided cookies for independent download
-                    cookies_b64 = songData.get('cookies')
-                    if cookies_b64:
-                        print(f"🔄 Server downloading {vid_id}, starting independent download with cookies...")
-                        result = self.independent_download_with_cookies(vid_id, cookies_b64, is_video=False)
-                        if result:
-                            return result
+                    # Server is downloading; start independent download using server-provided cookies
+                    print(f"?? Server downloading {vid_id}, starting independent download...")
+                    result = self.independent_download_with_cookies(vid_id, is_video=False)
+                    if result:
+                        return result
                     
                     # Wait a bit and check again
-                    print(f"⏳ Waiting for server download of {vid_id}...")
+                    print(f"? Waiting for server download of {vid_id}...")
                     time.sleep(5)
                     
                     # Check status again
@@ -657,7 +640,7 @@ class YouTubeAPI:
         def video_dl(vid_id):
             try:
                 if not BASE_API_KEY or not BASE_API_URL:
-                    print("⚙️ API KEY or URL not set in config")
+                    print("?? API KEY or URL not set in config")
                     return None
                     
                 headers = {
@@ -686,16 +669,14 @@ class YouTubeAPI:
                         future.result()  
                     return xyz
                 elif status == 'downloading':
-                    # Server is downloading, use provided cookies for independent download
-                    cookies_b64 = videoData.get('cookies')
-                    if cookies_b64:
-                        print(f"🔄 Server downloading {vid_id}, starting independent download with cookies...")
-                        result = self.independent_download_with_cookies(vid_id, cookies_b64, is_video=True)
-                        if result:
-                            return result
+                    # Server is downloading; start independent download using server-provided cookies
+                    print(f"?? Server downloading {vid_id}, starting independent download...")
+                    result = self.independent_download_with_cookies(vid_id, is_video=True)
+                    if result:
+                        return result
                     
                     # Wait a bit and check again
-                    print(f"⏳ Waiting for server download of {vid_id}...")
+                    print(f"? Waiting for server download of {vid_id}...")
                     time.sleep(5)
                     
                     # Check status again
@@ -720,7 +701,7 @@ class YouTubeAPI:
                     print(f"Error: {videoData.get('message', 'Unknown error from API.')}")
                     return None
                 else:
-                    print("⚙️ Could not fetch Backend")
+                    print("?? Could not fetch Backend")
                     return None
             except requests.exceptions.RequestException as e:
                 print(f"Network error while downloading: {str(e)}")
