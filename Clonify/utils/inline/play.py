@@ -70,7 +70,7 @@ def stream_markup_timer(_, chat_id, played, dur):
          [
              InlineKeyboardButton(text="σᴡηєʀ", url="https://t.me/ll_NOBITA_DEFAULTERS_ll"),
              
-             InlineKeyboardButton(text="ѕᴜᴘᴘσʀᴛ", url="https://t.me/+DRlOUMim-SdjOWJl")
+             InlineKeyboardButton(text="ѕᴜᴘᴘσʀᴛ", url="https://t.me/+E7jXcV6jpK0xMGJl")
          ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -91,7 +91,7 @@ def stream_markup(_, chat_id):
         [
              InlineKeyboardButton(text="σᴡηєʀ", url="https://t.me/ll_NOBITA_DEFAULTERS_ll"),
              
-             InlineKeyboardButton(text="ѕᴜᴘᴘσʀᴛ", url="https://t.me/+DRlOUMim-SdjOWJl")
+             InlineKeyboardButton(text="ѕᴜᴘᴘσʀᴛ", url="https://t.me/+E7jXcV6jpK0xMGJl")
          ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -245,7 +245,7 @@ def stream_markup2(_, chat_id):
                 text="ᴏᴡɴᴇʀ", url=f"https://t.me/ll_NOBITA_DEFAULTERS_ll"
             ),
             InlineKeyboardButton(
-                text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/+DRlOUMim-SdjOWJl"
+                text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/+E7jXcV6jpK0xMGJl"
             ),
         ],
 
