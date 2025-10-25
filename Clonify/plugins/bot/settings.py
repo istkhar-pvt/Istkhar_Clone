@@ -94,13 +94,13 @@ async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
 async def gib_repo(client, CallbackQuery, _):
     await CallbackQuery.edit_message_media(
         media=InputMediaVideo(
-            media="https://files.catbox.moe/w6pqef.mp4",
+            media="https://files.catbox.moe/o9rmgp.mp4",
             has_spoiler=True,
             caption="**ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ᴍᴜsɪᴄ ʙᴏᴛ ᴡᴀᴛᴄʜɪɴɢ ᴛʜᴇ ᴠɪᴅᴇᴏ ᴄᴀʀᴇғᴜʟʟʏ.**"
         ),
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton(text="ᯓ𓆰꯭𝅃꯭🔥𝚴 𝐎 𝐁 𝚰 𝐓 𝚲꯭⟶᯦꯭💸꯭〞", user_id=5536473064)],
+                [InlineKeyboardButton(text="𝛊 𝛅 𝜏 ƙ н 𝛂 𝐫", user_id=7980630836)],
                 [InlineKeyboardButton(text="⌯ ᴄʟσsє ⌯", callback_data="close")]
             ]
         )
