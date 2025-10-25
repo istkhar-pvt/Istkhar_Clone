@@ -15,9 +15,9 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_ID = getenv("BOT_ID")
 # -------------------------------------------------------
-OWNER_USERNAME = getenv("OWNER_USERNAME","ll_NOBITA_DEFAULTERS_ll")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "ll_S_H_A_D_O_W_lll")
 # --------------------------------------------------------
-BOT_USERNAME = getenv("BOT_USERNAME" , "NOBITA_MUSIC_TG_BOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "SumoMusicBot")
 # --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME" , "˹ 𝐍ᴏʙɪᴛᴀ ꭙ 𝐌ᴜsɪᴄ [2] ˼")
 # ---------------------------------------------------------
@@ -41,7 +41,7 @@ LOGGER_ID = int(getenv("LOGGER_ID"))
 CLONE_LOGGER = LOGGER_ID
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
-OWNER_ID = int(getenv("OWNER_ID", 5536473064))
+OWNER_ID = int(getenv("OWNER_ID", 7634448294))
 # -----------------------------------------------------------------
 # -----------------------------------------------------------------
 # config.py
@@ -60,7 +60,7 @@ API_KEY = getenv("API_KEY", 'NxGBNexGenBotsb1880e')
 SOURCE = getenv("SOURCE", "https://github.com/TEAMPURVI/SONALI_MUSIC")
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/iamnobita206243/NOBITA_CLONE_MUSIX",
+    "https://github.com/istkhar-pvt/Istkhar_Clone",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -73,9 +73,9 @@ GIT_TOKEN = getenv(
 
 #------------------------------------------------------------------------
 # -------------------------------------------------------------------------
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/NOB1TA_SUPPORT")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+E7jXcV6jpK0xMGJl")
-CHAT = getenv("CHAT", "https://t.me/+DRlOUMim-SdjOWJl")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Jully_Updates")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/+xfr6-ZOTaZVmODU1")
+CHAT = getenv("CHAT", "https://t.me/+xfr6-ZOTaZVmODU1")
 # ------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------
 
