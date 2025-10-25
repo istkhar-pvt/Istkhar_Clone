@@ -75,10 +75,10 @@ def aq_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="˹❍ᴡηєʀ˼ ", url=f"https://t.me/ll_NOBITA_DEFAULTERS_ll"
+                text="˹❍ᴡηєʀ˼ ", url=f"https://t.me/itzz_istkhar"
             ),
             InlineKeyboardButton(
-                text="˹sᴜᴘᴘᴏʀᴛ˼", url=f"https://t.me/+DRlOUMim-SdjOWJl"
+                text="˹sᴜᴘᴘᴏʀᴛ˼", url=f"https://t.me/jully_updates"
             ),
         ],
       ]
@@ -113,7 +113,7 @@ def queuemarkup(_, vidid, chat_id):
         [
             InlineKeyboardButton(
                 text="๏ ᴍᴏʀᴇ ๏",
-                url="https://t.me/NOB1TA_SUPPORT",
+                url="https://t.me/ll_istkhar_ll",
             ),
         ],
     ]
