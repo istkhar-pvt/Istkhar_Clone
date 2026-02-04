@@ -28,7 +28,8 @@ ASSUSERNAME = getenv("ASSUSERNAME" , "NOBITA_MUSIC_TG_BOT")
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 MONGO_DB_URI = getenv("MONGO_DB_URI")
-API_KEY = getenv("API_KEY")
+BASE_URL = getenv("API_URL", 'https://BabyAPI.Pro') 
+API_KEY = getenv('API_KEY', 'ADMINBABYX20F56755E70E0694DDCC844F5F1BB465') 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
